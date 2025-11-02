@@ -43,7 +43,7 @@ export const Game = () => {
     <div className="max-w-screen pt-10 flex justify-center">
       <div className="grid grid-cols-6 gap-4">
         <div className="h-screen col-span-4">
-          < Chessboard board={board} />
+          < Chessboard chess={chess} setBoard={setBoard} board={board} socket={socket}/>
         </div>
         <div className="flex justify-center items-center max-h-120 ml-15">
           <Button onClick={() => {
