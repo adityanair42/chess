@@ -22,6 +22,7 @@ class GameManager {
     addHandler(socket) {
         socket.on("message", (data) => {
             const message = JSON.parse(data.toString());
+            console.log(message);
             if (message.type == messages_1.INIT_GAME) {
                 if (this.pendingUser) {
                     const game = new Game_1.Game(this.pendingUser, socket);
