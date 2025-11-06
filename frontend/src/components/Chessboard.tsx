@@ -21,9 +21,12 @@ export const Chessboard = ({ chess, setBoard, board, socket, color }: {
       return <div key={i} className="flex">
         {row.map((square, j) => {
           return <div onClick={() => {
-            console.log(color)
             const squareRepresentation = String.fromCharCode(97 + j) + "" + (8 - i) as Square;
-            if(!from){
+            if(!from && square?.color !== color?.substring(0,1)){
+              console.log('Cant move this color')
+              setFrom(null);
+              return
+            }else if(!from){
               setFrom(squareRepresentation)
             } else {
               chess.move({
